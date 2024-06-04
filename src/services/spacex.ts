@@ -38,5 +38,5 @@ export const getPastLaunches = async () => {
     const res = await fetch("https://api.spacexdata.com/v5/launches/past?limit=10&offset=0")
     const data = await res.json();
     const limitData = data.slice(data.lenght-10, 10);
-    return limitData as SpaceXAPI;
+    return limitData;
 }
