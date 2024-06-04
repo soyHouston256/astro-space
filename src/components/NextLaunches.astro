@@ -1,0 +1,22 @@
+---
+import CardLaunch from "./CardLaunch.astro";
+
+import { getNextLaunches } from "../services/spacex"
+
+const launch = await getNextLaunches();
+console.log(launch);
+---
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+
+            <CardLaunch 
+                id={launch.id} 
+                name={launch.mission_name}
+                image={launch.links.mission_patch_small}
+                success={launch.success}
+                flightNumber={launch.flight_number}
+                details={launch.details ? launch.details : "No details available"}>
+            </CardLaunch>
+        
+    }
+</div>
